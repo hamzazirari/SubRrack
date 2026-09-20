@@ -70,13 +70,9 @@ public abstract class Abonnement {
 
     @Override
     public String toString() {
-        return "Abonnement{" +
-                "id='" + id + '\'' +
-                ", nomService='" + nomService + '\'' +
-                ", montantMensuel=" + montantMensuel +
-                ", dateDebut=" + dateDebut +
-                ", dateFin=" + dateFin +
-                ", statut=" + statut +
-                '}';
+        return "Abonnement : " + nomService +
+                " | Montant : " + montantMensuel + " DH/mois" +
+                " | Du " + dateDebut + " au " + dateFin +
+                " | Statut : " + statut;
     }
 }

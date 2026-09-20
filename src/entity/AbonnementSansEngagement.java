@@ -16,13 +16,11 @@ public class AbonnementSansEngagement extends Abonnement {
 
     @Override
     public String toString() {
-        return "AbonnementSansEngagement{" +
-                "id='" + getId() + '\'' +
-                ", nomService='" + getNomService() + '\'' +
-                ", montantMensuel=" + getMontantMensuel() +
-                ", dateDebut=" + getDateDebut() +
-                ", dateFin=" + getDateFin() +
-                ", statut=" + getStatut() +
-                '}';
+        return "Abonnement : " + getNomService() +
+                " (ID: " + getId() + ")" +
+                " | Montant : " + getMontantMensuel() + " DH/mois" +
+                " | Du " + getDateDebut() + " au " + getDateFin() +
+                " | Statut : " + getStatut() +
+                " | Sans engagement";
     }
 }

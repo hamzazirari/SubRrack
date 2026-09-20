@@ -4,6 +4,7 @@ import dao.AbonnementDAO;
 import dao.PaiementDAO;
 import entity.*;
 
+import exception.AbonnementNotFoundException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -62,34 +63,37 @@ public class AbonnementService {
     }
 
     // Modifier le montant mensuel d'un abonnement
-    public boolean modifierMontant(String id, double nouveauMontant) {
+    public void modifierMontant(String id, double nouveauMontant) throws AbonnementNotFoundException {
         Optional<Abonnement> abonnementOpt = abonnementDAO.findById(id);
 
         if (abonnementOpt.isPresent()) {
             Abonnement abonnement = abonnementOpt.get();
             abonnement.setMontantMensuel(nouveauMontant);
             abonnementDAO.update(abonnement);
-            return true;
+        } else {
+            throw new AbonnementNotFoundException("Aucun abonnement trouve avec l'id : " + id);
         }
-        return false;
     }
 
     // Resilier un abonnement
-    public boolean resilierAbonnement(String id) {
+    public void resilierAbonnement(String id) throws AbonnementNotFoundException {
         Optional<Abonnement> abonnementOpt = abonnementDAO.findById(id);
 
         if (abonnementOpt.isPresent()) {
             Abonnement abonnement = abonnementOpt.get();
             abonnement.setStatut(StatutAbonnement.RESILIE);
             abonnementDAO.update(abonnement);
-            return true;
+        } else {
+            throw new AbonnementNotFoundException("Aucun abonnement trouve avec l'id : " + id);
         }
-        return false;
     }
 
     // Supprimer un abonnement
-    public boolean supprimerAbonnement(String id) {
-        return abonnementDAO.delete(id);
+    public void supprimerAbonnement(String id) throws AbonnementNotFoundException {
+        boolean supprime = abonnementDAO.delete(id);
+        if (!supprime) {
+            throw new AbonnementNotFoundException("Aucun abonnement trouve avec l'id : " + id);
+        }
     }
 
     // Lister tous les abonnements

@@ -4,6 +4,7 @@ import dao.PaiementDAO;
 import entity.Paiement;
 import entity.StatutPaiement;
 
+import exception.PaiementNotFoundException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class PaiementService {
     }
 
     // Enregistrer qu'un paiement a ete paye
-    public boolean enregistrerPaiement(String idPaiement, LocalDate datePaiement) {
+    public void enregistrerPaiement(String idPaiement, LocalDate datePaiement) throws PaiementNotFoundException {
         Optional<Paiement> paiementOpt = paiementDAO.findById(idPaiement);
 
         if (paiementOpt.isPresent()) {
@@ -27,27 +28,30 @@ public class PaiementService {
             paiement.setDatePaiement(datePaiement);
             paiement.setStatut(StatutPaiement.PAYE);
             paiementDAO.update(paiement);
-            return true;
+        } else {
+            throw new PaiementNotFoundException("Aucun paiement trouve avec l'id : " + idPaiement);
         }
-        return false;
     }
 
-    // Modifier un paiement (exemple : changer le type de paiement)
-    public boolean modifierPaiement(String idPaiement, String nouveauType) {
+    // Modifier un paiement
+    public void modifierPaiement(String idPaiement, String nouveauType) throws PaiementNotFoundException {
         Optional<Paiement> paiementOpt = paiementDAO.findById(idPaiement);
 
         if (paiementOpt.isPresent()) {
             Paiement paiement = paiementOpt.get();
             paiement.setTypePaiement(nouveauType);
             paiementDAO.update(paiement);
-            return true;
+        } else {
+            throw new PaiementNotFoundException("Aucun paiement trouve avec l'id : " + idPaiement);
         }
-        return false;
     }
 
     // Supprimer un paiement
-    public boolean supprimerPaiement(String idPaiement) {
-        return paiementDAO.delete(idPaiement);
+    public void supprimerPaiement(String idPaiement) throws PaiementNotFoundException {
+        boolean supprime = paiementDAO.delete(idPaiement);
+        if (!supprime) {
+            throw new PaiementNotFoundException("Aucun paiement trouve avec l'id : " + idPaiement);
+        }
     }
 
     // Detecter les paiements en retard : dateEcheance depassee et pas encore paye

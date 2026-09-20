@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0df1bff8-18e4-4fa8-b3ff-b0d88ad09a11" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ui/MenuPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Abonnement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Abonnement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exception/AbonnementNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/AbonnementNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exception/PaiementNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/PaiementNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/AbonnementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/AbonnementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/PaiementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/PaiementService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

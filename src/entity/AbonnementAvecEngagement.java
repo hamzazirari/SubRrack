@@ -29,14 +29,11 @@ public class AbonnementAvecEngagement extends Abonnement {
 
     @Override
     public String toString() {
-        return "AbonnementAvecEngagement{" +
-                "id='" + getId() + '\'' +
-                ", nomService='" + getNomService() + '\'' +
-                ", montantMensuel=" + getMontantMensuel() +
-                ", dateDebut=" + getDateDebut() +
-                ", dateFin=" + getDateFin() +
-                ", statut=" + getStatut() +
-                ", dureeEngagementMois=" + dureeEngagementMois +
-                '}';
+        return "Abonnement : " + getNomService() +
+                " (ID: " + getId() + ")" +
+                " | Montant : " + getMontantMensuel() + " DH/mois" +
+                " | Du " + getDateDebut() + " au " + getDateFin() +
+                " | Statut : " + getStatut() +
+                " | Engagement : " + dureeEngagementMois + " mois";
     }
 }
