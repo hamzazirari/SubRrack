@@ -54,7 +54,7 @@ public class PaiementService {
         }
     }
 
-    // Detecter les paiements en retard : dateEcheance depassee et pas encore paye
+    // Detecter  paiement en retard dateEcheance depassee et pas encore paye
     public List<Paiement> detecterImpayes() {
         LocalDate aujourdHui = LocalDate.now();
 

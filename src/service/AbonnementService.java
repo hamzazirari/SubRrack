@@ -19,7 +19,6 @@ public class AbonnementService {
         this.paiementDAO = paiementDAO;
     }
 
-    // Creer un abonnement AVEC engagement
     public AbonnementAvecEngagement creerAbonnementAvecEngagement(
             String nomService, double montantMensuel, LocalDate dateDebut, int dureeEngagementMois) {
 
@@ -34,7 +33,6 @@ public class AbonnementService {
         return abonnement;
     }
 
-    // Creer un abonnement SANS engagement
     public AbonnementSansEngagement creerAbonnementSansEngagement(
             String nomService, double montantMensuel, LocalDate dateDebut, LocalDate dateFin) {
 
@@ -47,7 +45,6 @@ public class AbonnementService {
         return abonnement;
     }
 
-    // Genere un paiement (echeance) pour chaque mois entre dateDebut et dateFin
     private void genererEcheances(Abonnement abonnement) {
         LocalDate dateCourante = abonnement.getDateDebut();
 
@@ -62,7 +59,6 @@ public class AbonnementService {
         }
     }
 
-    // Modifier le montant mensuel d'un abonnement
     public void modifierMontant(String id, double nouveauMontant) throws AbonnementNotFoundException {
         Optional<Abonnement> abonnementOpt = abonnementDAO.findById(id);
 
@@ -75,7 +71,6 @@ public class AbonnementService {
         }
     }
 
-    // Resilier un abonnement
     public void resilierAbonnement(String id) throws AbonnementNotFoundException {
         Optional<Abonnement> abonnementOpt = abonnementDAO.findById(id);
 
@@ -88,7 +83,6 @@ public class AbonnementService {
         }
     }
 
-    // Supprimer un abonnement
     public void supprimerAbonnement(String id) throws AbonnementNotFoundException {
         boolean supprime = abonnementDAO.delete(id);
         if (!supprime) {
@@ -96,12 +90,10 @@ public class AbonnementService {
         }
     }
 
-    // Lister tous les abonnements
     public List<Abonnement> listerTousLesAbonnements() {
         return abonnementDAO.findAll();
     }
 
-    // Lister uniquement les abonnements actifs
     public List<Abonnement> listerAbonnementsActifs() {
         return abonnementDAO.findActiveSubscriptions();
     }
