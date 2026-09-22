@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0df1bff8-18e4-4fa8-b3ff-b0d88ad09a11" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/dao/AbonnementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/AbonnementDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +40,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "kotlin-language-version-configured": "true",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/safiy/IdeaProjects/SubTrack/src/Main.java",
