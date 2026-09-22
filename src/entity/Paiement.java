@@ -6,20 +6,20 @@ import java.util.UUID;
 public class Paiement {
 
     private String idPaiement;
-    private String idAbonnement; // référence vers l'abonnement concerné
+    private String idAbonnement;
     private LocalDate dateEcheance;
     private LocalDate datePaiement;
-    private String typePaiement; // ex: "Carte bancaire", "Virement", "Prélèvement"...
+    private String typePaiement;
     private StatutPaiement statut;
 
 
     public Paiement(String idAbonnement, LocalDate dateEcheance, String typePaiement) {
-        this.idPaiement = UUID.randomUUID().toString(); // génération automatique de l'id
+        this.idPaiement = UUID.randomUUID().toString();
         this.idAbonnement = idAbonnement;
         this.dateEcheance = dateEcheance;
         this.typePaiement = typePaiement;
-        this.datePaiement = null; // pas encore payé à la création
-        this.statut = StatutPaiement.NON_PAYE; // statut par défaut
+        this.datePaiement = null;
+        this.statut = StatutPaiement.NON_PAYE;
     }
 
     public String getIdPaiement() {
